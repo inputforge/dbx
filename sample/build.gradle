@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+}
+
+group = 'com.inputforge.dbx'
+version = '0.1.0'
+
+sourceCompatibility = '11'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':runtime')
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    annotationProcessor project(':processor')
+}
+
+test {
+    useJUnitPlatform()
+}
